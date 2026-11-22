@@ -1,0 +1,1 @@
+C needed the most setup because I had to use a C compiler to build the program before running it. I could run hello.py with the Python interpreter and hello.js with Node.js directly from their source files, without a separate build step.
