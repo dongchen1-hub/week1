@@ -1,2 +1,4 @@
-word = input("Enter a word: ")
+word = "infrastructure"
+
+print("Hello!")
 print(word[::-1])

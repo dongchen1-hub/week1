@@ -1,8 +1,9 @@
 # Week 1 coding style
 
-- Indent each block by four spaces. Use spaces throughout each file.
-- Choose names that describe their contents, such as `word` for the input and `letters` for a list of characters.
-- For names with several words, use `snake_case` in C and Python and `lowerCamelCase` in JavaScript.
-- In C and JavaScript, put the opening brace on the same line as the statement that starts a block. In Python, indent the body after the colon.
-- Put spaces around assignment and comparison operators. Leave a blank line between distinct steps when it makes the code easier to follow.
-- Use a short comment when a choice needs explanation. Keep prompts consistent across the three programs and end each result with a newline.
+- Give a variable a name that tells the reader what it holds. In JavaScript, `reversedWord` stores the letters in their new order.
+- Use four spaces for each level of indentation. In C, the `putchar` inside the loop sits one level deeper than the loop itself.
+- Put spaces around operators so expressions are easy to read. Write `remaining - 1` when finding the last letter.
+- Choose a name that matches what a loop counts. In C, `remaining` tells us how many letters are still waiting to be printed.
+- Give a value that stays the same a constant declaration when the language supports it. The JavaScript program starts with `const word`.
+- Group related lines, with a blank line when the task changes. In Python, the blank line after the assignment separates the word from the two print calls.
+- Give each output line one purpose. All three programs print `Hello!` on the first line and the reversed word on the next.

@@ -1,12 +1,5 @@
-const readline = require("node:readline");
+const word = "infrastructure";
+const reversedWord = word.split("").reverse().join("");
 
-const terminal = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
-
-terminal.question("Enter a word: ", (word) => {
-    const letters = Array.from(word);
-    console.log(letters.reverse().join(""));
-    terminal.close();
-});
+console.log("Hello!");
+console.log(reversedWord);
