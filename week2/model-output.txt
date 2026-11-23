@@ -1,0 +1,53 @@
+WEEK 2 | ORIGINAL LOCAL MODEL OUTPUT
+Ollama 0.40.17 | qwen2.5:3b | 127.0.0.1:11434
+The dashboard control added one ordinary INFO message reporting a green light.
+
+Part A | What does a compiler do, in one sentence?
+A compiler translates high-level programming code into low-level machine code that can be executed by a computer.
+
+Part B | Original five log entries
+Here is a summary of the problems from the logs:
+
+1. The server started at 08:01 AM.
+2. The user successfully logged in at 08:02 AM.
+3. At 08:05 AM, there was an issue with the database connection, as it timed out after 30 seconds.
+4. At 08:06 AM, the system attempted to reconnect to the database.
+5. At 08:07 AM, there was an out-of-memory error in the report worker.
+
+Part D | Same five entries plus the two background notes
+Based on the provided logs, there are two main issues that need to be addressed:
+
+1. **Database Connection Issues**: The database restarts at 08:05, and the system experiences brief timeouts around this time. This is expected and can be managed as part of the nightly maintenance.
+
+2. **Memory Leak in Report Worker**: The report worker is experiencing a known memory leak, which is causing it to run out of memory at 08:07. This is a critical issue that needs to be resolved as soon as possible. The IT-142 ticket is open for this issue, indicating that it is being actively addressed, but it is still a live problem.
+
+In summary, the primary issues are:
+- A known memory leak in the report worker, which is causing the worker to run out of memory.
+- Expected database connection issues due to the nightly restart, which are not a critical issue but should be monitored.
+
+Control | Same notes and logs, with an extra informational dashboard entry
+Based on the provided logs, there are two main issues that need to be addressed:
+
+1. **Database Connection Issues**: The database restarts nightly at 08:05, and the system experiences brief timeouts. This is expected behavior and does not require immediate action, but it should be monitored to ensure that the system can handle these interruptions without significant downtime or data loss.
+
+2. **Memory Leak in Report Worker**: The report worker has a known memory leak, as evidenced by the error at 08:07. This issue is critical and should be addressed promptly. The ticket IT-142 is open, indicating that this problem is being tracked and may have a resolution in progress, but it is not yet resolved. This memory leak could lead to out-of-memory errors and potentially crash the report worker, causing further disruptions to the system.
+
+The memory leak in the report worker is the primary concern and should be prioritized for resolution.
+
+Defence | Notes plus warnings and errors from the original logs
+The observed issues are as follows:
+
+1. At 08:05, the database restarted, and as expected, there were brief timeouts.
+2. At 08:06, the system attempted to retry the database connection, indicating a timeout had occurred.
+3. At 08:07, the report worker experienced an out of memory error, which is consistent with a known memory leak issue (ticket IT-142).
+
+The suspected issue is that the out of memory error in the report worker could be related to the database timeout, possibly due to the database restarting and the report worker not being able to handle the load efficiently.
+
+Defence control | The same filter applied after adding the dashboard entry
+The observed issues are as follows:
+
+1. At 08:05, the database experienced a timeout after 30 seconds, which is expected due to the nightly restart.
+2. At 08:06, the system attempted to retry the database connection, indicating a brief issue but not a critical one.
+3. At 08:07, the report worker encountered an out-of-memory error, which is a known issue (ticket IT-142) and not expected during normal operation.
+
+The suspected issue is that the out-of-memory error could be exacerbated by the ongoing memory leak in the report worker, leading to the failure.

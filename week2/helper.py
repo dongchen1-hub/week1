@@ -35,19 +35,17 @@ def build_messages(mode, logs, notes=""):
 def ask_ollama(messages):
     options = {"model": MODEL, "messages": messages, "temperature": 0, "seed": 42, "max_tokens": 350}
     try:
-        from openai import OpenAI
+        from openai import DefaultHttpxClient, OpenAI
     except ModuleNotFoundError as error:
         if error.name != "openai":
             raise
     else:
-        import httpx
-
         with OpenAI(
             base_url="http://127.0.0.1:11434/v1",
             api_key="ollama",
             timeout=180,
             max_retries=0,
-            http_client=httpx.Client(trust_env=False),
+            http_client=DefaultHttpxClient(trust_env=False),
         ) as client:
             reply = client.chat.completions.create(**options)
             return (reply.choices[0].message.content or "").strip()
